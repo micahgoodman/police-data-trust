@@ -1,15 +1,38 @@
+import React, { useState } from "react"
+
+import TextFieldInput from "../../components/textFieldInput"
+
 export default function Login() {
+  const [userCreds, setUserCreds] = useState({
+    email: "",
+    password: "",
+  })
+
+  const handleFieldsInput = (e: any, key: string) => {
+    setUserCreds({
+      ...userCreds,
+      [key]: e.target.value,
+    })
+  }
   return (
     <div className="Login">
       <img src="" placeholder="login logo" />
       <h1>Login</h1>
       <article className="email-container">
-        <label htmlFor="email">Email:</label>
-        <input name="email" type="text" placeholder="Email" />
+        <TextFieldInput
+          label={"Email:"}
+          placeholder={"Email"}
+          type="text"
+          handler={handleFieldsInput}
+        />
       </article>
       <article className="password-container">
-        <label htmlFor="password">Password:</label>
-        <input name="password" type="password" placeholder="something" />
+        <TextFieldInput
+          label={"Password:"}
+          placeholder={"Password"}
+          type="password"
+          handler={handleFieldsInput}
+        />
       </article>
     </div>
   )
