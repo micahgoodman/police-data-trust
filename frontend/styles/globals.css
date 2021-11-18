@@ -38,7 +38,3 @@ a:visited {
   color: var(--linkBlue);
   text-decoration: underline;
 }
-
-.hidden {
-  display: none !important;
-}
